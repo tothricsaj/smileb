@@ -1,0 +1,23 @@
+{
+  "name": "smileb",
+  "version": "1.0.0",
+  "description": "## User storys * drop emoji menu below the input field when type :emoji_name: * add suggestion when typing * use own emoji set up * use default emoji set up * handle which input field use the lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tothricsaj/smileb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tothricsaj/smileb/issues"
+  },
+  "homepage": "https://github.com/tothricsaj/smileb#readme",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
