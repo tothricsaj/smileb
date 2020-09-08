@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/tothricsaj/smileb#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "jest": "^26.4.2",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
