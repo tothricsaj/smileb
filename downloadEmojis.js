@@ -4,15 +4,24 @@ const url = require('url');
 const http = require('http');
 const exec = require('child_process').exec;
 const spawn = require('child_process').spawn;
+const unzipper = require('unzipper')
 
 let file_url = 'https://github.com/hfg-gmuend/openmoji/releases/latest/download/openmoji-72x72-color.zip';
 let DOWNLOAD_DIR = './src/assets/emojis/';
 
-let mkdir = 'mkdir -p ' + DOWNLOAD_DIR;
-let child = exec(mkdir, function(err, stdout, stderr) {
-  if (err) throw err;
-  else download_file_httpget(file_url);
-});
+const getEmojis = () => {
+    return new Promise((resolve, reject) => {
+        let mkdir = 'mkdir -p ' + DOWNLOAD_DIR;
+        let child = exec(mkdir, function(err, stdout, stderr) {
+            if (err) reject(err)
+            else {
+                download_file_httpget(file_url)
+                // unZipEmojis()
+            }
+        })
+        resolve('foo')
+    })
+}
 
 let download_file_httpget = function(file_url) {
   let options = {
@@ -33,3 +42,13 @@ let download_file_httpget = function(file_url) {
     });
   });
 };
+
+let unZipEmojis = function() {
+  // TODO(tothricsaj): fail when unzipping
+    console.log('Unzipping emojis....')
+    fs.createReadStream('./src/assets/emojis/openmoji-72x72-color.zip')
+        .pipe(unzipper.Extract({path: './src/assets/emojis/openmoji-72x72-color'}))
+}
+
+getEmojis()
+    .catch(err => console.log(err))
