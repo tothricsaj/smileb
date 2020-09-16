@@ -19,6 +19,16 @@ module.exports = {
         path: path.resolve(__dirname, 'dist/'),
         filename: '[name].js'
     },
+    module: {
+        rules: [
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            }
+        ]
+    },
     devServer: {
         contentBase: './dist',
     },
