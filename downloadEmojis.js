@@ -1,3 +1,5 @@
+// TODO(tothricsaj): fail downloading - not zip file
+// 
 // Dependencies
 const fs = require('fs');
 const url = require('url');
@@ -44,7 +46,6 @@ let download_file_httpget = function(file_url) {
 };
 
 let unZipEmojis = function() {
-  // TODO(tothricsaj): fail when unzipping
     console.log('Unzipping emojis....')
     fs.createReadStream('./src/assets/emojis/openmoji-72x72-color.zip')
         .pipe(unzipper.Extract({path: './src/assets/emojis/openmoji-72x72-color'}))
